@@ -63,8 +63,11 @@ public class PrivKeyFormatter_PrivateKeyPackedFv1TestCase {
         FullPolynomial f = new FullPolynomial(fBytes);
         // Put f into the appropriate range [-q/2..q/2)
         for (int i=0; i<f.p.length; i++)
+        {
+          f.p[i] %= q;
           if (f.p[i] >= q/2)
             f.p[i] -= q;
+        }
         return f;
     }
         
